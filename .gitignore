@@ -1,0 +1,6 @@
+.idea
+data
+models
+notebooks
+*.csv
+__pycache__
