@@ -54,8 +54,8 @@ with open("data/training_series_long.csv", "r+") as f :
                 counter += 1
                 if counter % 10 == 0:
                     t2 = time.time()
-                    dt = t2 - t1
-                    dt_avg = 0.8*dt_avg + 0.2*dt
+                    dt = (t2 - t1)/10.
+                    dt_avg = 0.2*dt_avg + 0.8*dt
                     t1 = t2
                 if counter % 100 == 0:
                     left = 10000 - counter
