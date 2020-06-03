@@ -69,9 +69,11 @@ t_test = np.array([start_date + pd.to_timedelta(str(x)+"h") for x in range(168)]
 # plt.plot(t_test, preds1, label='means')
 # plt.plot(t_test, preds2, label='medians')
 # plt.legend()
+#%%
+trueVal = pd.read_csv('data/exemplary_solution.csv', header=None).to_numpy()[:,2:]
+solVal = pd.read_csv('out2.csv', header=None).to_numpy()[:,2:]
+#%%
+from sklearn.metrics import r2_score
 
-
-
-
-
-
+scores = np.array([r2_score(solVal[i], trueVal[i]) for i in range(trueVal.shape[0])])
+means = np.array([solVal[i].mean() for i in range(trueVal.shape[0])])
